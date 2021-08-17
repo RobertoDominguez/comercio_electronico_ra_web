@@ -24,4 +24,11 @@ class Product extends Model
     public function scopeProducts($query){
         return $query->where('active',true)->where('removed',false);
     }
+
+    public function scopeProductsCategorie($query,$id_categorie){
+        return $query->join('product_categories','product_categories.product_id','products.id')
+        ->join('categories','categories.id','product_categories.categorie_id')
+        ->where('categories.id',$id_categorie)
+        ->where('products.active',true)->where('products.removed',false);
+    }
 }

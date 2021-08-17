@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ApiCategorieController extends Controller
 {
     public function all(){
-        $data=Categorie::all();
+        $data=Categorie::categories()->get();
         $response=[
             'status'=>'ok',
             'data'=>$data

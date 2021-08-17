@@ -24,7 +24,7 @@ class CreateSalesTable extends Migration
             $table->unsignedBigInteger('delivery_companie_id');
             
 
-            $table->foreign('payment_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('delivery_companie_id')->references('id')->on('delivery_companies')->onDelete('cascade')->onUpdate('cascade');

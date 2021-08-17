@@ -17,6 +17,15 @@ class ApiProductController extends Controller
         return response()->json($response, 200);        
     }
 
+    public function allCategorie($categorie_id){
+        $data=Product::productsCategorie($categorie_id)->select('products.*')->get();
+        $response=[
+            'status'=>'ok',
+            'data'=>$data
+        ];
+        return response()->json($response, 200);        
+    }
+
     public function show($id){
         $data=Product::find($id);
         
